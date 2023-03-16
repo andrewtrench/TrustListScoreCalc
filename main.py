@@ -27,7 +27,7 @@ if reset:
 st.text("Enter the following attributes to get the URL Quality score")
 st.text("Contact is either 0 and 1 ie. True or False")
 contact = st.number_input("Contact", min_value=0.0, max_value=1.0, step=1.0)
-st.text("Contact Confidence is between 0 and 1 eg. 0.3"
+st.text("Contact Confidence is between 0 and 1 eg. 0.3")
 contact_confidence = st.number_input("Contact Confidence", min_value=0.0, max_value=1.0, step=0.1)
 st.text("Policy is either 0 and 1 ie. True or False")
 policy = st.number_input("Policy", min_value=0.0, max_value=1.0, step=1.0)
@@ -37,9 +37,9 @@ st.text("Authors is either 0 and 1 ie. True or False")
 authors = st.number_input("Authors", min_value=0.0, max_value=1.0, step=1.0)
 st.text="Authors Confidence is between 0 and 1 eg. 0.3"
 authors_confidence = st.number_input("Authors Confidence", min_value=0.0, max_value=1.0, step=0.1)
-st.text("Ad Indicator is either 0 and 1 ie. True or False")
+st.text=("Ad Indicator is either 0 and 1 ie. True or False")
 ad_indicator = st.number_input("Ad Indicator", min_value=0.0, max_value=1.0, step=1.0)
-st.text("Ad Indicator Confidence is between 0 and 1 eg. 0.3")
+st.text=("Ad Indicator Confidence is between 0 and 1 eg. 0.3")
 ad_indicator_confidence = st.number_input("Ad Indicator Confidence", min_value=0.0, max_value=1.0, step=0.1)
 
 def cal_quality_score(contact, contact_confidence, policy, policy_confidence, authors, authors_confidence, ad_indicator, ad_indicator_confidence):
