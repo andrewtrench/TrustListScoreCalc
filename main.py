@@ -6,7 +6,7 @@ def cal_attribute_score(ratio, ads_score, ssl, whois):
     return score
 
 
-#st.title("TrustList URL Score Calculator")
+st.title("TrustList URL Score Calculator")
 #st.text("Enter the following attributes to get the URL Attribute score")
 
 #st.text("Ratio is between 0 and 1500. Eg New York Times is around 1200 with 6bn links and 350m domains")
