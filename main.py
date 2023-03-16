@@ -31,7 +31,7 @@ ad_indicator = st.number_input("Ad Indicator", min_value=0.0, max_value=1.0, ste
 ad_indicator_confidence = st.number_input("Ad Indicator Confidence", min_value=0.0, max_value=1.0, step=0.1)
 
 def cal_quality_score(contact, contact_confidence, policy, policy_confidence, authors, authors_confidence, ad_indicator, ad_indicator_confidence):
-    quality_score = (((contact * contact_confidence) * 2) + ((policy * policy_confidence) * 4) + ((authors * authors_confidence) * 3) + ((ad_indicator * ad_indicator_confidence) * 1) * 10)
+    quality_score = ((((contact * contact_confidence) * 2) + ((policy * policy_confidence) * 4) + ((authors * authors_confidence) * 3) + ((ad_indicator * ad_indicator_confidence) * 1))*10)
 
     return quality_score
 
