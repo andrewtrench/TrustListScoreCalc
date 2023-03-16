@@ -7,9 +7,9 @@ def cal_attribute_score(ratio, ads_score, ssl, whois):
 
 st.text("Enter the following attributes to get the attribute score")
 ratio = st.number_input("Ratio", min_value=0.0, max_value=1500.0, step=0.1)
-ads_score = st.number_input("Ads Score", min_value=0.0, max_value=1.0, step=0.1)
+ads_score = st.number_input("Ads Score", min_value=0.0, max_value=1.0, step=1)
 whois = st.number_input("Whois", min_value=0.0, max_value=1.0, step=0.1)
-ssl = st.number_input("SSL", min_value=0.0, max_value=1.0, step=0.1)
+ssl = st.number_input("SSL", min_value=0.0, max_value=1.0, step=1)
 
 score = cal_attribute_score(ratio, ads_score, ssl, whois)
 show_score = st.empty()
