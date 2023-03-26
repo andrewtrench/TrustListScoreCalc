@@ -13,13 +13,13 @@ st.text("Ratio is between 0 and 1500. Eg New York Times is around 1200 with 6bn 
 ratio = st.number_input("Incoming links: referring sites ratio between 0-1500", min_value=0.0, max_value=1500.0, step=0.1)
 
 #st.text("Ads Score is between 0 and 1 ie. True or False")
-ads_score = st.number_input("Ads Score is either 0 or 1 (True or False)", min_value=0.0, max_value=1.0, step=1.0)
+ads_score = st.number_input("Has ads.txt? Ads Score is either 0 or 1 (True or False)", min_value=0.0, max_value=1.0, step=1.0)
 
 #st.text("Whois is between 0, 0.5 and 1 ie. 0 if no record, 0.5 if date < 1 year, 1 if date > 1 year")
-whois = st.number_input("Whois 0 = none, 0.5 = date < 1 year, 1 = date > 1 year", min_value=0.0, max_value=1.0, step=0.5)
+whois = st.number_input("Whois creation date < 1 year old? Whois 0 = none, 0.5 = date < 1 year, 1 = date > 1 year", min_value=0.0, max_value=1.0, step=0.5)
 
 #st.text("SSL is between 0 and 1 ie. True or False")
-ssl = st.number_input("SSL. 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+ssl = st.number_input("Has SSL certificate and is connectable? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
 
 score = cal_attribute_score(ratio, ads_score, ssl, whois)
 show_score = st.empty()
@@ -33,30 +33,30 @@ if reset:
 st.text("Play with the following attributes to see the effect of the inputs on URL Quality score")
 
 #st.text("Contact is either 0 and 1 ie. True or False")
-contact = st.number_input("Contact 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+contact = st.number_input("Has a quality Contact page? Contact 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
 
 #st.text("Contact Confidence is between 0 and 1 eg. 0.3")
 contact_confidence = st.number_input("Contact Confidence 0 to 1 eg 0.3", min_value=0.0, max_value=1.0, step=0.1)
 
 #st.text("Policy is either 0 and 1 ie. True or False")
-policy = st.number_input("Policy 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+policy = st.number_input("Has a policy page of some sort? Policy 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
 
 #st.text("Policy Confidence is between 0 and 1 eg. 0.3")
 policy_confidence = st.number_input("Policy Confidence 0 to 1 eg 0.3", min_value=0.0, max_value=1.0, step=0.1)
 
 #st.text("Authors is either 0 and 1 ie. True or False")
-authors = st.number_input("Authors, 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+authors = st.number_input("We can identify Authors? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
 
 #st.text("Authors Confidence is between 0 and 1 eg. 0.3")
 authors_confidence = st.number_input("Authors Confidence 0 to 1 eg 0.3", min_value=0.0, max_value=1.0, step=0.1)
 
 #st.text("Ad Indicator is either 0 and 1 ie. True or False")
-ad_indicator = st.number_input("Ad Indicator 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+ad_indicator = st.number_input("Distinguishes between Ads and Editorial? Ad Indicator 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
 
 #st.text("Ad Indicator Confidence is between 0 and 1 eg. 0.3")
 ad_indicator_confidence = st.number_input("Ad Indicator Confidence 0 to 1 eg 0.3", min_value=0.0, max_value=1.0, step=0.1)
 
-ad_density_above_45_score = st.number_input("Ad Density Above 45 Score 0 or 1 eg 0.3", min_value=0.0, max_value=1.0, step=1.0)
+ad_density_above_45_score = st.number_input("Ad Density Above 45? Score 0 or 1 eg 0.3", min_value=0.0, max_value=1.0, step=1.0)
 
 def cal_quality_score(contact, contact_confidence, policy, policy_confidence, authors, authors_confidence, ad_indicator,
                       ad_indicator_confidence, ad_density_above_45_score):
@@ -77,4 +77,4 @@ show_quality_score = st.empty()
 show_quality_score.write(f"Quality Score /100: {quality_score}")
 quality_reset = st.button("Quality Reset")
 if quality_reset:
-    contact, contact_confidence, policy, policy_confidence, authors, authors_confidence, ad_indicator_confidence, ad_indicator = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+    contact, contact_confidence, policy, policy_confidence, authors, authors_confidence, ad_indicator_confidence, ad_indicator, ad_density_above_45_score = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
