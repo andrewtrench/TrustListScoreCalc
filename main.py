@@ -56,11 +56,17 @@ ad_indicator = st.number_input("Ad Indicator 0 or 1, True or False", min_value=0
 #st.text("Ad Indicator Confidence is between 0 and 1 eg. 0.3")
 ad_indicator_confidence = st.number_input("Ad Indicator Confidence 0 to 1 eg 0.3", min_value=0.0, max_value=1.0, step=0.1)
 
+ad_density_above_45_score = st.number_input("Ad Density Above 45 Score 0 or 1 eg 0.3", min_value=0.0, max_value=1.0, step=1.0)
 
 def cal_quality_score(contact, contact_confidence, policy, policy_confidence, authors, authors_confidence, ad_indicator,
-                      ad_indicator_confidence):
+                      ad_indicator_confidence, ad_density_above_45_score):
+    '''Calculate the quality score of a URL. Where there is a confidience score multiply the attribute by the confidence score. ie
+    a quality contact page exists = 1 * 0.9 (if that was the confidence score.This will hopefully introduce some granularity to the
+    quality score. The ad_density_above_45_score is a binary score of 0 or 1. If the ad density is above 45% then the score is 1 and 0 if below.
+    The weighting of minus 1 is to ensure if has a significant impact on the quality score.'''
+
     quality_score = ((((contact * contact_confidence) * 2) + ((policy * policy_confidence) * 4) + (
-                (authors * authors_confidence) * 3) + ((ad_indicator * ad_indicator_confidence) * 1)) * 10)
+                (authors * authors_confidence) * 3) + ((ad_indicator * ad_indicator_confidence) * 1) + (ad_density_above_45_score * -1)) * 10)
 
     return quality_score
 
