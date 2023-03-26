@@ -7,10 +7,10 @@ def cal_attribute_score(ratio, ads_score, ssl, whois):
 
 
 st.title("TrustList URL Score Calculator")
-st.text("Enter the following attributes to get the URL Attribute score")
+st.text("Play with the following attributes to see the effect of the inputs on URL Attribute score")
 
 st.text("Ratio is between 0 and 1500. Eg New York Times is around 1200 with 6bn links and 350m domains")
-ratio = st.number_input("Incoming links: referrign sites ratio between 0-1500", min_value=0.0, max_value=1500.0, step=0.1)
+ratio = st.number_input("Incoming links: referring sites ratio between 0-1500", min_value=0.0, max_value=1500.0, step=0.1)
 
 #st.text("Ads Score is between 0 and 1 ie. True or False")
 ads_score = st.number_input("Ads Score is either 0 or 1 (True or False)", min_value=0.0, max_value=1.0, step=1.0)
@@ -30,7 +30,7 @@ if reset:
     ratio, whois, ssl, ads_score = 0.0, 0.0, 0.0, 0.0
     show_score.write(f"Score: {score}")
 
-#st.text("Enter the following attributes to get the URL Quality score")
+st.text("Play with the following attributes to see the effect of the inputs on URL Quality score")
 
 #st.text("Contact is either 0 and 1 ie. True or False")
 contact = st.number_input("Contact 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
@@ -72,7 +72,7 @@ def cal_quality_score(contact, contact_confidence, policy, policy_confidence, au
 
 
 quality_score = cal_quality_score(contact, contact_confidence, policy, policy_confidence, authors, authors_confidence,
-                                  ad_indicator, ad_indicator_confidence)
+                                  ad_indicator, ad_indicator_confidence, ad_density_above_45_score)
 show_quality_score = st.empty()
 show_quality_score.write(f"Quality Score /100: {quality_score}")
 quality_reset = st.button("Quality Reset")
