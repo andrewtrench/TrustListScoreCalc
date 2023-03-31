@@ -81,7 +81,7 @@ if quality_reset:
 
 
 
-st.text("Play with the following attributes to see the effect of the inputs on human review of the site")
+st.write("Play with the following attributes to see the effect of the inputs on human review of the site")
 
 
 quality_contact = st.number_input("Quality Contact Page? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
