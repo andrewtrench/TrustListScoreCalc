@@ -78,3 +78,29 @@ show_quality_score.write(f"Quality Score /100: {quality_score}")
 quality_reset = st.button("Quality Reset")
 if quality_reset:
     contact, contact_confidence, policy, policy_confidence, authors, authors_confidence, ad_indicator_confidence, ad_indicator, ad_density_above_45_score = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+
+
+
+st.text("Play with the following attributes to see the effect of the inputs on human review of the site")
+
+
+quality_contact = st.number_input("Quality Contact Page? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+policy_content = st.number_input("Quality Policy Page? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+quality_authors = st.number_input("Quality Authors? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+quality_ad_indicator = st.number_input("Quality Ad Indicator? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+site_subjective_risk = st.number_input("Site Subjective Risk? 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
+
+def cal_human_quality_score(quality_contact, policy_content, quality_authors, quality_ad_indicator, site_subjective_risk):
+    '''Calculate the quality score of a URL based on human review with appropriate weightings.'''
+
+    human_quality_score = (((quality_contact * 2) + (policy_content * 4) + (quality_authors * 2) + (quality_ad_indicator * 1) + (site_subjective_risk*1)) * 10)
+
+    return human_quality_score
+
+human_review_score = cal_human_quality_score(quality_contact, policy_content, quality_authors, quality_ad_indicator, site_subjective_risk)
+
+show_human_quality_score = st.empty()
+show_human_quality_score.write(f"Quality Score /100: {human_review_score}")
+human_quality_reset = st.button("Quality Reset")
+if human_quality_reset:
+    quality_contact, policy_content, quality_authors, quality_ad_indicator, site_subjective_risk = 0.0, 0.0, 0.0, 0.0, 0.0
