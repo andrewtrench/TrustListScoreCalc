@@ -93,7 +93,7 @@ site_subjective_risk = st.number_input("Site Subjective Risk? 0 or 1, True or Fa
 def cal_human_quality_score(quality_contact, policy_content, quality_authors, quality_ad_indicator, site_subjective_risk):
     '''Calculate the quality score of a URL based on human review with appropriate weightings.'''
 
-    human_quality_score = (((quality_contact * 2) + (policy_content * 4) + (quality_authors * 2) + (quality_ad_indicator * 1) + (site_subjective_risk*1)) * 10)
+    human_quality_score = (((quality_contact * 2) + (policy_content * 4) + (quality_authors * 2) + (quality_ad_indicator * 2) + (site_subjective_risk*-1)) * 10)
 
     return human_quality_score
 
