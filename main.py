@@ -100,7 +100,7 @@ def cal_human_quality_score(quality_contact, policy_content, quality_authors, qu
 human_review_score = cal_human_quality_score(quality_contact, policy_content, quality_authors, quality_ad_indicator, site_subjective_risk)
 
 show_human_quality_score = st.empty()
-show_human_quality_score.write(f"Quality Score /100: {human_review_score}")
-human_quality_reset = st.button("Quality Reset")
+show_human_quality_score.write(f"Human Review Score /100: {human_review_score}")
+human_quality_reset = st.button("Human Review Reset")
 if human_quality_reset:
     quality_contact, policy_content, quality_authors, quality_ad_indicator, site_subjective_risk = 0.0, 0.0, 0.0, 0.0, 0.0
