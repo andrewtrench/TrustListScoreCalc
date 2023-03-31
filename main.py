@@ -7,7 +7,7 @@ def cal_attribute_score(ratio, ads_score, ssl, whois):
 
 
 st.title("TrustList URL Score Calculator")
-st.text("Play with the following attributes to see the effect of the inputs on URL Attribute score")
+st.write("Play with the following attributes to see the effect of the inputs on URL Attribute score")
 
 st.text("Ratio is between 0 and 1500. Eg New York Times is around 1200 with 6bn links and 350m domains")
 ratio = st.number_input("Incoming links: referring sites ratio between 0-1500", min_value=0.0, max_value=1500.0, step=0.1)
@@ -30,7 +30,7 @@ if reset:
     ratio, whois, ssl, ads_score = 0.0, 0.0, 0.0, 0.0
     show_score.write(f"Score: {score}")
 
-st.text("Play with the following attributes to see the effect of the inputs on URL Quality score")
+st.write("Play with the following attributes to see the effect of the inputs on URL Quality score")
 
 #st.text("Contact is either 0 and 1 ie. True or False")
 contact = st.number_input("Has a quality Contact page? Contact 0 or 1, True or False", min_value=0.0, max_value=1.0, step=1.0)
